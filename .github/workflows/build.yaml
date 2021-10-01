@@ -1,0 +1,39 @@
+name: Build OpenWrt
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: "release or not"
+        required: false
+        default: "false"
+env:
+  OP_REPO: jianshaow/lede
+  OP_REPO_BRANCH: master
+  FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: .config
+  DIY_P1_SH: diy-part1.sh
+  DIY_P2_SH: diy-part2.sh
+  TZ: Asia/Shanghai
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: before
+      run: |
+        echo ----------------$GITHUB_WORKSPACE
+    - name: checkout
+      uses: actions/checkout@v2.3.4
+    - name: checkout op sources
+      uses: actions/checkout@v2.3.4
+      with:
+        repository: ${{ env.OP_REPO }}
+        path: ../lede
+    - name: prepare
+      run: |
+        pwd
+        echo ================$GITHUB_WORKSPACE
+        ls -la
+        ls ../ -la
+        df -h
+        uname -a
+        ip a
