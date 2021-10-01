@@ -25,11 +25,13 @@ jobs:
         mkdir -p $GITHUB_WORKSPACE
     - name: checkout
       uses: actions/checkout@v2.3.4
+      with:
+        path: main
     - name: checkout op sources
       uses: actions/checkout@v2.3.4
       with:
         repository: ${{ env.OP_REPO }}
-        path: ../lede
+        path: op
     - name: prepare
       run: |
         pwd
