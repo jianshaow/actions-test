@@ -7,6 +7,7 @@ on:
         required: false
         default: "false"
 env:
+  GITHUB_WORKSPACE: /workspace
   OP_REPO: jianshaow/lede
   OP_REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
@@ -21,6 +22,7 @@ jobs:
     - name: before
       run: |
         echo ----------------$GITHUB_WORKSPACE
+        mkdir -p $GITHUB_WORKSPACE
     - name: checkout
       uses: actions/checkout@v2.3.4
     - name: checkout op sources
