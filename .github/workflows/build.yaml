@@ -25,6 +25,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: Prepare environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
       run: |
         docker rmi `docker images -q` > /dev/null
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
@@ -37,7 +39,7 @@ jobs:
     - name: Checkout build script
       uses: actions/checkout@v2
       with:
-        path=${{ env.BUILD_REPO_PATH }}
+        path: ${{ env.BUILD_REPO_PATH }}
     - name: Checkout op sources
       uses: actions/checkout@v2
       with:
