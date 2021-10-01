@@ -5,10 +5,15 @@ on:
   workflow_dispatch:
 env:
   CONFIG_FILE: $GITHUB_WORKSPACE/config
+  TEST1: ${{ github.action_path }}/test1
+  TEST2: ${{ github.workspace }}/test2
 jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
     - name: test
       run: |
-        echo $CONFIG_FILE
+        echo config=$CONFIG_FILE
+        echo test1=$TEST1
+        echo test2=$TEST2
+
