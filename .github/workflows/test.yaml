@@ -1,0 +1,14 @@
+name: Build OpenWrt
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+env:
+  CONFIG_FILE: $GITHUB_WORKSPACE/config
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: test
+      run: |
+        echo $CONFIG_FILE
