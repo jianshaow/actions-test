@@ -4,16 +4,19 @@ on:
   repository_dispatch:
   workflow_dispatch:
 env:
-  CONFIG_FILE: $GITHUB_WORKSPACE/config
-  TEST1: ${{ github.action_path }}/test1
-  TEST2: ${{ github.workspace }}/test2
+  BUILD_REPO_DIR: build
+  BUILD_REPO_PATH: ${{ github.workspace }}/${{ env.BUILD_REPO_DIR }}
+  OP_REPO_DIR: lede
+  OP_REPO_PATH: ${{ github.workspace }}/${{ env.OP_REPO_DIR }}
+  ARTIFACT_DIR: artifact
+  ARTIFACT_PATH: ${{ github.workspace }}/${{ env.ARTIFACT_DIR }}
 jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
     - name: test
       run: |
-        echo config=$CONFIG_FILE
-        echo test1=$TEST1
-        echo test2=$TEST2
+        echo BUILD_REPO_PATH=$BUILD_REPO_PATH
+        echo OP_REPO_PATH=$OP_REPO_PATH
+        echo ARTIFACT_PATH=$ARTIFACT_PATH
 
