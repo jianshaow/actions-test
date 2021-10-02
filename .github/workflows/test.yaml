@@ -5,11 +5,11 @@ on:
   workflow_dispatch:
 env:
   BUILD_REPO_DIR: build
-  BUILD_REPO_PATH: ${{ github.workspace }}/${{ env.BUILD_REPO_DIR }}
+  BUILD_REPO_PATH: ${{ github.workspace }}/$BUILD_REPO_DIR
   OP_REPO_DIR: lede
-  OP_REPO_PATH: ${{ github.workspace }}/${{ env.OP_REPO_DIR }}
+  OP_REPO_PATH: ${{ github.workspace }}/$OP_REPO_DIR
   ARTIFACT_DIR: artifact
-  ARTIFACT_PATH: ${{ github.workspace }}/${{ env.ARTIFACT_DIR }}
+  ARTIFACT_PATH: ${{ github.workspace }}/$ARTIFACT_DIR
 jobs:
   build:
     runs-on: ubuntu-20.04
