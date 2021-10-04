@@ -19,4 +19,4 @@ jobs:
         echo BUILD_REPO_PATH=$BUILD_REPO_PATH
         echo OP_REPO_PATH=$OP_REPO_PATH
         echo ARTIFACT_PATH=$ARTIFACT_PATH
-
+        apt search ca-certificates
