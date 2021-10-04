@@ -17,8 +17,8 @@ jobs:
     - name: test
       run: |
         sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* android*
-        ls -la /usr/share/dotnet
-        ls -la /usr/local/lib/android
-        ls -la /opt
-        ls -la /etc/mysql
-        ls -la /etc/php
+        du -h --max-depth=1 /usr/share/dotnet
+        du -h --max-depth=1 /usr/local/lib/android
+        du -h --max-depth=1  /opt/az
+        du -h --max-depth=1 /usr/share/php
+        du -h --max-depth=1 /etc/mysql
