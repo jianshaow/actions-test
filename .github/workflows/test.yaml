@@ -12,7 +12,7 @@ env:
   ARTIFACT_PATH: ${{ github.workspace }}/$ARTIFACT_DIR
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: test
       run: |
