@@ -20,6 +20,5 @@ jobs:
         echo OP_REPO_PATH=$OP_REPO_PATH
         echo ARTIFACT_PATH=$ARTIFACT_PATH
         apt search ca-certificates
-        sudo -E apt-get -y update
-        sudo -E apt-get -y upgrade
+        sudo update-ca-certificates
         curl -v https://goproxy.io/github.com/ghodss/yaml/@v/
