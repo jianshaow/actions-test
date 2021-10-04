@@ -16,6 +16,6 @@ jobs:
     steps:
     - name: test
       run: |
-        ls -la /usr/share/dotnet
-        ls -la /usr/local/lib/android
-        ls -la /opt/ghc
+        ls -laR /usr/share/dotnet
+        ls -laR /usr/local/lib/android
+        ls -laR /opt
