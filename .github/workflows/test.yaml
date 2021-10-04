@@ -16,12 +16,6 @@ jobs:
     steps:
     - name: test
       run: |
-        echo BUILD_REPO_PATH=$BUILD_REPO_PATH
-        echo OP_REPO_PATH=$OP_REPO_PATH
-        echo ARTIFACT_PATH=$ARTIFACT_PATH
-        date
-        apt search ca-certificates
-        sudo apt update -y
-        sudo apt-get -y install ca-certificates
-        sudo update-ca-certificates
-        curl -v https://goproxy.io/github.com/ghodss/yaml/@v/
+        echo | openssl s_client -servername goproxy.io -connect goproxy.io:443 2>/dev/null | openssl x509 -text
+        echo | openssl s_client -servername goproxy.cn -connect goproxy.cn:443 2>/dev/null | openssl x509 -text
+        curl -v https://goproxy.cn/
