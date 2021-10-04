@@ -16,6 +16,9 @@ jobs:
     steps:
     - name: test
       run: |
+        sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* android*
         ls -laR /usr/share/dotnet
         ls -laR /usr/local/lib/android
         ls -laR /opt
+        ls -laR /etc/mysql
+        ls -laR /etc/php
