@@ -16,9 +16,11 @@ jobs:
     steps:
     - name: test
       run: |
-        sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* android*
-        du -h --max-depth=1 /usr/share/dotnet
-        du -h --max-depth=1 /usr/local/lib/android
-        du -h --max-depth=1  /opt/az
-        du -h --max-depth=1 /usr/share/php
-        du -h --max-depth=1 /etc/mysql
+        nslookup goproxy.io
+        nslookup goproxy.io 84.200.69.80
+        cat /etc/resolv.conf
+        sed -i '1s/^/nameserver 84.200.69.80\n/' /etc/resolv.conf
+        cat /etc/resolv.conf
+        nslookup goproxy.io
+        curl https://goproxy.io -o /dev/null
+        
