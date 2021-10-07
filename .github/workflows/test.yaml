@@ -19,7 +19,7 @@ jobs:
         nslookup goproxy.io
         nslookup goproxy.io 84.200.69.80
         cat /etc/resolv.conf
-        sed -i '1s/^/nameserver 84.200.69.80\n/' /etc/resolv.conf
+        sudo sed -i '1s/^/nameserver 84.200.69.80\n/' /etc/resolv.conf
         cat /etc/resolv.conf
         nslookup goproxy.io
         curl https://goproxy.io -o /dev/null
